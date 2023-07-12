@@ -247,7 +247,7 @@ async def next_page(bot, query):
     ])
     btn.insert(0, [
         InlineKeyboardButton("⚡ Cʜᴇᴄᴋ Bᴏᴛ PM ⚡", url=f"https://t.me/{temp.U_NAME}")
-    ])    
+    ])
     try:
         await query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(btn)
@@ -256,7 +256,7 @@ async def next_page(bot, query):
         pass
     await query.answer()
 
-Client.on_callback_query(filters.regex(r"^lang"))
+@Client.on_callback_query(filters.regex(r"^lang"))
 async def language_check(bot, query):
     _, userid, language = query.data.split("#")
     if int(userid) not in [query.from_user.id, 0]:
